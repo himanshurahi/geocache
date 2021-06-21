@@ -38,9 +38,16 @@ class GeocacheController extends Controller
      */
     public function store(Request $request)
     {
+        $validatedData = $request->validate([
+            'image' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:1024',
+        ]);
+        
+        $name = time().'.'.$request->file('image')->getClientOriginalExtension();
         $geocache = new Geocache();
         $geocache->name = $request->name;
         $geocache->description = $request->description;
+        $geocache->image = $name;
+        $request->image->move(public_path('images'), $name);
         $geocache->save();
         return redirect('/geocache');
     }
@@ -53,7 +60,8 @@ class GeocacheController extends Controller
      */
     public function show($id)
     {
-       $geocache = Geocache::find($id)->first();
+       $geocache = Geocache::findorfail($id);
+      
        return view('geocache.view', compact('geocache'));
     }
 
@@ -65,7 +73,7 @@ class GeocacheController extends Controller
      */
     public function edit($id)
     {
-        $geocache = Geocache::find($id)->first();
+        $geocache = Geocache::find($id);
         return view('geocache.edit', compact("geocache"));
     }
 
@@ -79,9 +87,20 @@ class GeocacheController extends Controller
     public function update(Request $request, $id)
     {
         
-        $geocache = Geocache::find($id)->first();
+        $validatedData = $request->validate([
+            'image' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:1024',
+        ]);
+        $geocache = Geocache::find($id);
+        unlink(public_path('images/'.$geocache->image));
+        
+        $name = time().'.'.$request->file('image')->getClientOriginalExtension();
+        
+       
+        
         $geocache->name = $request->name;
         $geocache->description = $request->description;
+        $request->image->move(public_path('images'), $name);
+        $geocache->image = $name;
         $geocache->save();
         return redirect('/geocache');
     }
@@ -94,7 +113,9 @@ class GeocacheController extends Controller
      */
     public function destroy($id)
     {
-       Geocache::find($id)->delete();
+       $geocache = Geocache::find($id);
+        unlink(public_path('images/'.$geocache->image));
+        $geocache->delete();
        return redirect('/geocache');
     }
 }

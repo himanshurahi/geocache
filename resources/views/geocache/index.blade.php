@@ -4,7 +4,7 @@
             {{ __('Geocache') }}
         </h2>
     </x-slot>
-    
+
     <div class="py-1">
         <div class="w-5/6 mx-auto">
           <div class="mt-10">
@@ -15,6 +15,8 @@
                 <thead>
                   <tr>
                     <th class="py-4 px-6 bg-grey-lightest font-bold uppercase text-sm text-grey-dark border-b border-grey-light">Name</th>
+                    <th class="py-4 px-6 bg-grey-lightest font-bold uppercase text-sm text-grey-dark border-b border-grey-light">Created By</th>
+                    <th class="py-4 px-6 bg-grey-lightest font-bold uppercase text-sm text-grey-dark border-b border-grey-light">Created on</th>
                     <th class="py-4 px-6 bg-grey-lightest font-bold uppercase text-sm text-grey-dark border-b border-grey-light">Action</th>
                     
                   </tr>
@@ -23,11 +25,13 @@
                   @foreach ($geocache as $geo)
                   <tr class="hover:bg-grey-lighter">
                     <td class="py-4 px-6 border-b border-grey-light">{{$geo->name}}</td>
+                    <td class="py-4 px-6 border-b border-grey-light">{{substr($geo->user->name,0,20)}}</td>
+                    <td class="py-4 px-6 border-b border-grey-light">{{ \Carbon\Carbon::parse($geo->created_at)->format('d-m-y') }}</td>
                     <td class="py-4 px-6 border-b border-grey-light ">
                       <div class="flex justify-center">
                         <a href="/geocache/{{$geo->id}}/edit" class="mr-2 text-grey-lighter font-bold py-1 px-3 rounded text-xs bg-green-700 hover:bg-green-400 text-white">Edit</a>
                       <a href="/geocache/{{$geo->id}}" class="text-grey-lighter font-bold py-1 px-3 rounded text-xs bg-blue-700 hover:bg-blue-400 text-white">View</a>
-                      <form class="ml-2" action="/geocache/{{$geo->id}}" method="post">
+                      <form class="ml-2" action="/geocache/{{$geo->id}}" method="post" onsubmit="return confirm('Are you sure?')">
                         @csrf
                         @method("Delete")
                         <button type="submit" class="text-grey-lighter font-bold py-1 px-3 rounded text-xs bg-red-700 hover:bg-red-400 text-white">Delete</button>
@@ -44,5 +48,5 @@
           </div>
     </div>
 
-    
+ 
 </x-app-layout>

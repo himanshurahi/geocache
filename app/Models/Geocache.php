@@ -18,4 +18,8 @@ class Geocache extends Model
         $this->comments()->delete();
         return parent::delete();
     }
+
+    public function user(){
+        return $this->hasOne(User::class, 'id', 'created_by');
+    }
 }

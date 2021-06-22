@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Comments;
 use App\Models\Geocache;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class GeocacheController extends Controller
 {
@@ -47,6 +48,7 @@ class GeocacheController extends Controller
         $geocache->name = $request->name;
         $geocache->description = $request->description;
         $geocache->image = $name;
+        $geocache->created_by = Auth::user()->id;
         $request->image->move(public_path('images'), $name);
         $geocache->save();
         return redirect('/geocache');

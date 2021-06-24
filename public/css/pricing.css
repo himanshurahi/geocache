@@ -1,0 +1,197 @@
+html {
+  font-family: "Lato", "sans-serif";
+}
+button[type="button"] {
+  outline: none !important;
+}
+.navbar {
+  background-color: white !important;
+  border-bottom: 1px solid rgba(234, 234, 235, 0.5);
+}
+
+.navbar-brand {
+  padding: 0 15px;
+  height: 80px;
+  line-height: 80px;
+}
+
+.currency ul {
+  list-style: none;
+  display: flex;
+  padding-left: 0px;
+  width: 40%;
+  justify-content: space-evenly;
+  background-color: #f6f7f8;
+  border-radius: 100px;
+  padding: 5px;
+}
+.main {
+  text-align: center;
+  border-bottom: 1px solid rgba(234, 234, 235, 0.5);
+  height: 80px;
+  overflow: hidden;
+  position: relative;
+}
+.currency {
+  display: flex;
+  justify-content: center;
+}
+.side_image img {
+  height: 150px;
+}
+.side_image {
+  position: absolute;
+  right: 0;
+  top: 100px;
+}
+
+.m_currency {
+  display: flex;
+  width: 40%;
+  justify-content: space-evenly;
+  background-color: rgba(234, 234, 235, 0.5);
+  border-radius: 100px;
+  cursor: pointer;
+}
+.currency {
+  justify-content: center;
+}
+.price {
+  width: 100%;
+  padding: 5px;
+}
+.features ul{
+    list-style: none;
+    padding-left: 0px;
+}
+.fa-check{
+    color: grey;
+}
+.fa-exclamation-circle{
+    color: grey;
+}
+.social_icon{
+    color: white;
+    font-size: 1.4rem;
+}
+.price.active {
+  background-color: black;
+  border-radius: 100px;
+  color: white;
+  transition: all 0.5s ease-in-out;
+}
+.pricing_column {
+  box-shadow: 0 0 8px rgb(0 0 0 / 7%);
+  transition: 0.3s;
+}
+.pricing_column:hover {
+  box-shadow: 0 0 8px rgb(0 0 0 / 20%);
+}
+.info {
+  border-left: 6px solid #4fe289;
+  padding: 10px;
+}
+.pricing_footer {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+}
+.pricing_footer button {
+  background-color: #62b1f4;
+  border: none;
+  padding: 15px;
+  border-radius: 50px;
+  width: 80%;
+  transition: all 0.3s ease-in;
+  color: white;
+}
+
+.pricing_footer button:hover {
+  transform: scale(1.1);
+}
+.duration {
+  display: flex;
+  background-color: rgba(234, 234, 235, 0.5);
+  border-radius: 100px;
+  width: 70%;
+  cursor: pointer;
+}
+.duration_item {
+  width: 100%;
+  padding: 4px;
+  transition: all .3s ease-out
+}
+
+.duration_active {
+  background-color: black;
+  color: white;
+  border-radius: 100px;
+}
+.educational_discount {
+}
+.educational_discount_text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.educational_discount button {
+  border: none;
+  background-color: #62b1f4;
+  width: 30%;
+  padding: 10px;
+  border-radius: 100px;
+  color: white;
+}
+.payment_text {
+  width: 70%;
+}
+
+.payment {
+  display: flex;
+  justify-content: center;
+}
+
+footer {
+  background-color: #40444e;
+  color: #9da3af;
+}
+.accordion {
+}
+.accordion .card {
+  border: none;
+}
+.card-body {
+  background-color: #f7f7f7;
+}
+@media (max-width: 630px) {
+  .m_currency {
+    width: 70%;
+  }
+  .side_image {
+    display: none;
+  }
+  .faq h1 {
+    font-size: 1.5rem;
+    text-align: center;
+  }
+  .payment_text {
+    width: 90%;
+  }
+  .educational_discount_text button {
+    width: 70%;
+  }
+}
+
+@media (max-width: 575px) {
+  .footer_end {
+    justify-content: center;
+  }
+  .footer_end_text {
+    width: 70%;
+    margin-top: 20px;
+  }
+  .footer_start {
+    border-bottom: 1px solid white;
+  }
+}

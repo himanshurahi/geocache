@@ -11,4 +11,8 @@ class PricingController extends Controller
         $pricings = Pricing::all();
         return view('Pricing.index', compact('pricings'));
     }
+    protected function create(){
+        
+        return view('Pricing.create');
+    }
 }

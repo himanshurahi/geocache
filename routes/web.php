@@ -23,6 +23,7 @@ Route::get('/', function () {
 Route::resource('/geocache', GeocacheController::class);
 Route::post('/comments/{geocache_id}', [CommentsController::class, 'store']);
 Route::get("/pricing", [PricingController::class, 'index']);
+Route::get("/pricing/add", [PricingController::class, 'create']);
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');

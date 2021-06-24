@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CommentsController;
 use App\Http\Controllers\GeocacheController;
+use App\Http\Controllers\PricingController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,6 +22,7 @@ Route::get('/', function () {
 
 Route::resource('/geocache', GeocacheController::class);
 Route::post('/comments/{geocache_id}', [CommentsController::class, 'store']);
+Route::get("/pricing", [PricingController::class, 'index']);
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');

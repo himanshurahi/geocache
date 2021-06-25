@@ -8,11 +8,11 @@
         
         <div class="w-5/6 mx-auto">
             <div class="bg-white p-5 shadow-md rounded my-6">
-                <input required class=" w-full text-base py-2 border-b border-gray-300 focus:outline-none focus:border-indigo-500 rounded mb-4" type="text" placeholder="Plan Name" name="name" id="plan_name">
+                <input required class=" w-full text-base py-2 border-b border-gray-300 focus:outline-none focus:border-indigo-500 rounded mb-4" type="text" placeholder="Plan Name" name="name" id="plan_name" value="{{$plan->name}}">
                 <textarea id="editor1">
-                    Welcome to TinyMCE!
+                    {{$plan->plan}}
                   </textarea>
-                  <button type="button" class="bg-white text-blue-700 border-blue-700 mt-5 px-5 py-3 cursor-pointer  text-sm shadow-sm font-medium tracking-wider border rounded hover:shadow-lg hover:bg-blue-700 hover:text-white focus:border-blue-700"  id="submit">submit</button>
+                  <button type="button" class="bg-white text-blue-700 border-blue-700 mt-5 px-5 py-3 cursor-pointer  text-sm shadow-sm font-medium tracking-wider border rounded hover:shadow-lg hover:bg-blue-700 hover:text-white focus:border-blue-700"  id="submit">Update</button>
           </div>
     </div>
 </x-app-layout>
@@ -31,8 +31,8 @@
        console.log(tinymce.get('editor1').getContent());
        
        $.ajax({
-           url  : "/pricing/create",
-           method : "POST",
+           url  : "/pricing/{{$plan->id}}/edit",
+           method : "PUT",
            data : {data : tinymce.get('editor1').getContent(), 
             "_token": "{{ csrf_token() }}", 
             name : $("#plan_name").val()

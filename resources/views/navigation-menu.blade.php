@@ -18,6 +18,9 @@
                     <x-jet-nav-link href="{{ route('geocache.index') }}" :active="request()->routeIs('geocache.index')">
                         {{ __('Geocache') }}
                     </x-jet-nav-link>
+                    <x-jet-nav-link href="{{ route('list') }}" :active="request()->routeIs('list')">
+                        {{ __('Plans') }}
+                    </x-jet-nav-link>
                 </div>
             </div>
 

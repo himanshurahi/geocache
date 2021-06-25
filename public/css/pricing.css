@@ -28,7 +28,7 @@ button[type="button"] {
 .main {
   text-align: center;
   border-bottom: 1px solid rgba(234, 234, 235, 0.5);
-  height: 80px;
+  height: 120px;
   overflow: hidden;
   position: relative;
 }

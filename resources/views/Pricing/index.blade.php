@@ -206,20 +206,11 @@
                     @endif   
                   </div>
                 </div>
-    
-                @endforeach
-              
-  
-  
-  
-            </div>
+                 @endforeach
+               </div>
           </div>
         </section>
-  
-  
-  
-  
-        {{-- Dynamic --}}
+    {{-- Dynamic --}}
   
   
   
@@ -358,6 +349,16 @@
           </div>
         </div>
       </section> --}}
+
+      <section class="pricing mt-5">
+        <div class="mx-5">
+          <div class="row">
+              @foreach ($plans as $plan)
+              {!! $plan->plan !!}  
+              @endforeach
+          </div>
+        </div>
+      </section>
   
       <section class="educational_discount text-center mt-5 container">
         <div class="row">

@@ -17,6 +17,7 @@
 
         <!-- Scripts -->
         <script src="{{ mix('js/app.js') }}" defer></script>
+        <script src="https://cdn.tiny.cloud/1/94qjjlff47nq51b2w0c70lmtdq2ilvydlto1ql4njqtdwouz/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
     </head>
     <body class="font-sans antialiased">
         <x-jet-banner />

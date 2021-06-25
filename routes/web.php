@@ -23,7 +23,12 @@ Route::get('/', function () {
 Route::resource('/geocache', GeocacheController::class);
 Route::post('/comments/{geocache_id}', [CommentsController::class, 'store']);
 Route::get("/pricing", [PricingController::class, 'index']);
-Route::get("/pricing/add", [PricingController::class, 'create']);
+Route::get("/pricing/create", [PricingController::class, 'create']);
+Route::get("/pricing/{id}/edit", [PricingController::class, 'edit']);
+Route::put("/pricing/{id}/edit", [PricingController::class, 'update']);
+Route::delete("/pricing/{id}", [PricingController::class, 'destroy']);
+Route::get("/pricing/list", [PricingController::class, 'list'])->name("list");
+Route::post("/pricing/create", [PricingController::class, 'store']);
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');

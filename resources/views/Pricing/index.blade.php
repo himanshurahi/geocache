@@ -355,7 +355,7 @@
         </div>
       </section> --}}
 
-      <section class="pricing mt-5">
+      <section class="pricing mt-0">
         <div class="mx-5">
           <div class="row">
               @foreach ($plans as $plan)

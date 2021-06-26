@@ -26,7 +26,7 @@ class PricingController extends Controller
         $pricing = new Plan();
         $pricing->name = $request->name;
         $pricing->plan =  $request->data;
-        $pricing->user_id = 1;
+        $pricing->user_id = Auth::user()->id;
         $pricing->save();
         return;
     }

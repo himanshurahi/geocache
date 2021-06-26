@@ -16,13 +16,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [PricingController::class, 'index']);
 
 Route::resource('/geocache', GeocacheController::class);
 Route::post('/comments/{geocache_id}', [CommentsController::class, 'store']);
-Route::get("/pricing", [PricingController::class, 'index']);
+// Route::get("/pricing", [PricingController::class, 'index']);
 Route::get("/pricing/create", [PricingController::class, 'create']);
 Route::get("/pricing/{id}/edit", [PricingController::class, 'edit']);
 Route::put("/pricing/{id}/edit", [PricingController::class, 'update']);

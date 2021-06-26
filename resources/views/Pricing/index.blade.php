@@ -22,6 +22,11 @@
               >
             </li>
             <li class="nav-item">
+                <a class="nav-link" href="/login"
+                  >Login <span class="sr-only">(current)</span></a
+                >
+              </li>
+            <li class="nav-item">
               <a class="nav-link" href="#">Link</a>
             </li>
           </ul>
@@ -51,7 +56,7 @@
   
       {{-- start Dynamic --}}
   
-      <section class="pricing mt-5">
+      <section class="pricing mt-0">
           <div class="mx-5">
             <div class="row">
                 @foreach ($pricings as $price)
@@ -501,15 +506,20 @@
       @section('scripts')
       <script>
         $(".duration_item").click(function () {
-            $(".duration_item").removeClass("duration_active")
-              $(this).addClass("duration_active");
-              console.log($(this).parent())
+            // $(".duration_item").removeClass("duration_active")
+            //   $(this).addClass("duration_active");
+
+              console.log($(this))
               var annual_amount = $(this).parent().prev().find(".amount_annual")
               var monthly_amount = $(this).parent().prev().prev().find(".amount_monthly")
               if($(this).text().toLowerCase() == 'annual'){
+                  $(this).next().removeClass("duration_active")
+                  $(this).addClass("duration_active");
                   annual_amount.css("display" , 'block');
                   monthly_amount.css("display" , 'none');
               }else {
+                $(this).prev().removeClass("duration_active")
+                 $(this).addClass("duration_active");
                   annual_amount.css("display" , 'none');
                   monthly_amount.css("display" , 'block');
               }

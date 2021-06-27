@@ -1,7 +1,7 @@
     @extends('layouts.bootstrap.app')
     @section('content')
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#"><img class="mt-2" style="height: 80%;"  src="/images/logo.png" alt="" srcset=""></a>
+        <a class="navbar-brand" href="/"><img class="mt-2" style="height: 80%;"  src="/images/logo.png" alt="" srcset=""></a>
         <button
           class="navbar-toggler"
           type="button"
@@ -14,7 +14,7 @@
           <span class="navbar-toggler-icon"></span>
         </button>
   
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        {{-- <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
               <a class="nav-link" href="#"
@@ -30,7 +30,7 @@
               <a class="nav-link" href="#">Link</a>
             </li>
           </ul>
-        </div>
+        </div> --}}
       </nav>
   
       <section class="main mt-5">
@@ -59,7 +59,7 @@
       <section class="pricing mt-0">
           <div class="mx-5">
             <div class="row">
-                @foreach ($pricings as $price)
+             @foreach ($pricings as $price)
                 <div class="col-lg-3 col-md-6 pricing_column p-4">
                   <h3><strong>{{$price->name}}</strong></h3>
                   <p style="color: #828388;"><i>Starting at</i></p>
@@ -216,10 +216,6 @@
           </div>
         </section>
     {{-- Dynamic --}}
-  
-  
-  
-  
   
       {{-- <section class="pricing mt-5">
         <div class="mx-5">
